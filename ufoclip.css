@@ -1,0 +1,92 @@
+body{
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas{
+  background-color: black;
+  display: block;
+  margin: 20 auto;
+}
+
+.display{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 30px;
+  margin-top: 80px;
+  margin-bottom: 10px;
+  width: 850px;
+}
+
+/* #time,
+#life{
+  margin-right: 160px;
+} */
+
+.startview{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.status{
+  display: none;
+}
+
+.status div {
+  font-size: 72px;
+  color: black;
+  position: absolute;
+  left: 50%;
+  top: 130px;
+  transform: translate(-50%, 0);
+  text-shadow: 0 0 2px #ccc, 0 0 4px #ccc, 0 0 6px #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.status .score_status{
+  margin-top: 130px;
+  width: 100vw;
+}
+
+.status button{
+  position: absolute;
+  width: 300px;
+  height: 60px;
+  color: black;
+  font-size: 36px;
+  font-weight: bold;
+  text-shadow: 0 0 1px #ccc, 0 0 2px #ccc, 0 0 3px #ccc;
+  border: none;
+  background: none;
+  left: 50%;
+  top: 380px;
+  transform: translate(-50%, 0);
+}
+
+.introduce{
+  position: absolute;
+  font-size: 32px;
+  flex-direction: row;
+  justify-content: center;
+  left: 48vw;
+  bottom: -500px;
+  transform: translate(-50%, 0);
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.introduce .text{
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.introduce br{
+  margin-top: 10px;
+}

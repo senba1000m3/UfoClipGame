@@ -1,0 +1,46 @@
+<!DOCTYPE html 20230807>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>飛碟吸金</title>
+    <style type="text/css">
+      @import "ufoclip.css";
+    </style>
+  </head>
+  <body onload="start();">
+    <div class="display">
+      <div>時間：<span id="time">0分0秒</span></div>
+      <div id="life">❤️❤️❤️❤️❤️</div>
+      <div id="score_type">分數：<span id="score">0</span>分</div>
+    </div>
+    <div class="startview">
+      <canvas id="canvas" width="864" height="576"></canvas>
+      <div id="status" class="status">
+        <div>遊戲結束！</div>
+        <div class="score_status">你總共獲得了<span id="lastscore">0</span>分</div>
+        <button type="button" onclick="Restart()">回&thinsp;到&thinsp;標&thinsp;題&thinsp;畫&thinsp;面</button>
+      </div>
+    </div>
+    <div class="introduce">
+      <div class="">遊戲玩法：</div>
+      <div class="text">．按下小鍵盤左右鍵改變飛碟移動方向，飛碟會一直朝著那個方向移動。</div>
+      <div class="text">．飛碟碰到牆壁會反彈，改往反方向前進。</div>
+      <div class="text">．每當分數增加，飛碟移動的速度也會越來越快。</div>
+      <div class="text">．按下空格鍵發射引力光速，吸取下方的物品。</div>
+      <div class="text">．若吸到金幣會加1分，吸到炸彈則會扣1顆心。</div>
+      <div class="text">．遊戲畫面上方有三顆愛心，當愛心被扣完遊戲就會結束。</div>
+      <div class="text">．場地上最多只會同時存在六個金幣跟三個炸彈。</div>
+      <div class="text"><br></div>
+    </div>
+    <audio id="bgm" src="bgm.mp3"></audio>
+    <audio id="button" src="button.mp3"></audio>
+    <audio id="gold" src="gold.mp3"></audio>
+    <audio id="boom" src="boom.mp3"></audio>
+    <audio id="light" src="light.mp3"></audio>
+    <audio id="jelly" src="jelly.mp3"></audio>
+    <audio id="kurage" src="kurage.mp3"></audio>
+    <a href="https://zh.lovepik.com/images/png-954100.html">透明水母 Png vectors by Lovepik.com</a>
+    <script src="ufoclip.js"></script>
+	</div>
+  </body>
+</html>
