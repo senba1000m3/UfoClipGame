@@ -35,33 +35,30 @@ window.addEventListener("keydown", function(e){
     if (lifes > 0){
       lightAudio.currentTime = 0;
       lightAudio.play();
-    }
-    if (!isAnimating){
-      isAnimating = true;
-      animationStartTime = Date.now();
-      shoot = 0;
-      shoot_time = 100;
-      setTimeout(function(){
+      if (!isAnimating){
         isAnimating = true;
         animationStartTime = Date.now();
-        shoot = 1;
-        shoot_time = 1000;
-      }, 100);
+        shoot = 0;
+        shoot_time = 100;
+        setTimeout(function(){
+          isAnimating = true;
+          animationStartTime = Date.now();
+          shoot = 1;
+          shoot_time = 1000;
+        }, 100);
+      }
     }
+
     findObject("light").height = 480+20-ufoPositonY;
     findObject("light").y = 80-20+ufoPositonY;
   }
 
   switch (e.keyCode){
     case 39:
-      movespeed = Math.abs(movespeed);
-      break;
-    case 37:
-      movespeed = Math.abs(movespeed)*-1;
-      break;
     case 68:
       movespeed = Math.abs(movespeed);
       break;
+    case 37:
     case 65:
       movespeed = Math.abs(movespeed)*-1;
       break;
@@ -400,7 +397,6 @@ function SummonMonster(direct){
   }
 }
 
-
 function SummonBoom(){
   booms.push([getRandom(10,canvas.width-130),getRandom(450,510)]);
   createObject("boom"+boom_index, booms[booms.length-1][0], booms[booms.length-1][1], 70, 70, "boom.png");
@@ -408,7 +404,7 @@ function SummonBoom(){
   boom_count+=1;
 }
 
-function Restart() {
+function Restart(){
   lifes = 5;
   objects = []; movespeed = 0;
   golds = [[getRandom(10,canvas.width-130), getRandom(435,510)]];
@@ -423,11 +419,11 @@ function Restart() {
   document.location.reload();
 }
 
-function getRandom(min,max) {
+function getRandom(min,max){
     return Math.floor(Math.random()*(max-min+1))+min;
 };
 
-function startGame() {
+function startGame(){
   ifGameStart = true;
   bgmAudio.pause();
   createObject("bg", 0, 0, canvas.width, canvas.height, "background.jpg");
@@ -439,14 +435,14 @@ function startGame() {
   setTimeout(WarningHint, 3000);
 }
 
-function start() {
+function start(){
   if (localStorage.getItem("high_score") === null){
     localStorage.setItem("high_score", 0);
   }
   processStartScene();
 }
 
-function processStartScene() {
+function processStartScene(){
   ifCreditOpen = false;
   let creditButtonStatus = false;
   var start_scene = new Image();
@@ -502,7 +498,7 @@ function processStartScene() {
     });
 
     if (!ifGameStart){
-      canvas.addEventListener("click", function(event) {
+      canvas.addEventListener("click", function(event){
         var x = event.clientX - canvas.getBoundingClientRect().left;
         var y = event.clientY - canvas.getBoundingClientRect().top;
 
@@ -571,7 +567,7 @@ function processStartScene() {
       });
     }
 
-    function drawButton(x, y, text, isHover) {
+    function drawButton(x, y, text, isHover){
       if (!ifGameStart){
         ctx.fillStyle = isHover ? "#FFD54F" : "#FFECB3";
         ctx.strokeStyle = "#FFA500";
@@ -587,7 +583,7 @@ function processStartScene() {
 
     if (!ifGameStart){
       var title_logo = new Image();
-      title_logo.onload = function() {
+      title_logo.onload = function(){
         ctx.drawImage(title_logo, 90, 50, 685, 240);
         var scale = 1.0;
         var scaleStep = 0.0005;
@@ -597,7 +593,7 @@ function processStartScene() {
         var credits = new Image();
         credits.src = "credit.png"
 
-        function scaleTitleLogo() {
+        function scaleTitleLogo(){
           ctx.clearRect(100, 50, 685 * scale, 240 * scale);
           ctx.drawImage(fake_bg, 0, 0, canvas.width, canvas.height*0.72);
           ctx.drawImage(title_logo, 430 - 340*scale, 180 - 130*scale, 685 * scale, 240 * scale);
@@ -610,7 +606,7 @@ function processStartScene() {
           }
 
           scale += scaleStep;
-          if (scale >= 1.025 || scale <= 1) {
+          if (scale >= 1.025 || scale <= 1){
             scaleStep = -scaleStep;
           }
         }
